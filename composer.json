@@ -1,0 +1,22 @@
+{
+    "name": "juan/hotel-mvc",
+    "description": "Proyect MVC, PHP, SQL",
+    "type": "poject",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Adell",
+            "email": "jumadell@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
+}
