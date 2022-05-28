@@ -9,7 +9,7 @@ class ReservaController
     public static function index(Router $router)
     {
 
-        //isAuth();
+        //session_start();
 
         $router->render('reserva/index', [
             'nombre' => $_SESSION['nombre'],

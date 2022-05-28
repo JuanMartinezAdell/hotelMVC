@@ -14,7 +14,7 @@ class Habitacion extends ActiveRecord
     public $precioTAlta;
     public $precioTBaja;
     public $estado;
-    public $descipcion;
+    public $descripcion;
     public $fechaEntrada;
     public $fechaSalida;
 

@@ -1,14 +1,14 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.listado-servicios {
+.listado-habitaciones {
     display: grid;
     gap: 2rem;
     @include m.tablet {
-        @include m.grid(2, 2rem);
+        @include m.grid(3, 2rem);
     }
 
-    .servicio {
+    .habitacion {
         background-color: v.$blanco;
         padding: 3rem;
         border-radius: 1rem;
@@ -31,7 +31,36 @@
             color: v.$negro;
             margin: 0 0 calc( v.$separacion / 4) 0;
         }
-        .precio-servicio {
+
+        .numero-habitacion {
+            color: v.$azul;
+            font-weight: v.$bold;
+            font-size: 5rem;
+            margin: 0;
+        }
+
+        .precioAlta-habitacion {
+            font-weight: v.$bold;
+            font-size: 2rem;
+            margin: 0;
+        }
+        .precioBaja-habitacion {
+            font-weight: v.$bold;
+            font-size: 2rem;
+            margin: 0;
+        }
+        .fechaEn-habitacion {
+            color: v.$azul;
+            font-weight: v.$bold;
+            margin: 0;
+        }
+        .fechaSa-habitacion {
+            color: v.$azul;
+            font-weight: v.$bold;
+            margin: 0;
+        }
+
+        .estado-habitacion {
             color: v.$azul;
             font-weight: v.$bold;
             font-size: 3rem;

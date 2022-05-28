@@ -2,8 +2,9 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
-use Controllers\APIController;
 use MVC\Router;
+use Controllers\APIController;
+use Controllers\AdminController;
 use Controllers\LoginController;
 use Controllers\ReservaController;
 
@@ -30,7 +31,7 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 
 // API de registro
 $router->get('/api/habitaciones', [APIController::class, 'index']);
-
+$router->post('/api/reservas', [APIController::class, 'guardar']);
 
 //AREA PRIVADA
 $router->get('/reserva', [ReservaController::class, 'index']);

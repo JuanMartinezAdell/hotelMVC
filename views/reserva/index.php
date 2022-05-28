@@ -2,7 +2,7 @@
 <p class="descripcion-pagina">Indica las fechas de tu estancia y alojamiento</p>
 
 <?php
-//include_once __DIR__ . '/../templates/barra.php';
+include_once __DIR__ . '/../templates/barra.php';
 ?>
 
 <div id="app">
@@ -21,7 +21,7 @@
             </div>
             <div class="campo">
                 <label for="fecha">Fecha Entrada</label>
-                <input id="fechaEntrada" type="date" min="<?php echo date('Y-m-d', strtotime('day')); ?>" />
+                <input id="fechaEntrada" type="date" min="<?php echo date('Y-m-d', strtotime('+0 day')); ?>" />
             </div>
             <div class="campo">
                 <label for="fecha">Fecha Salida</label>
