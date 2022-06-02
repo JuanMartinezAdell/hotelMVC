@@ -7,6 +7,7 @@ const reserva = {
   nombre: "",
   fechaEntrada: "",
   fechaSalida: "",
+  // usuarioId: "",
   // habitacionId: "",
   habitaciones: [],
 };
@@ -371,19 +372,30 @@ function mostrarResumen() {
 }
 
 async function reservarHabitacion() {
-  const { nombre, fechaEntrada, fechaSalida, habitaciones /*, id*/ } = reserva;
+  const {
+    nombre,
+    fechaEntrada,
+    fechaSalida,
+    habitaciones,
+    // id,
+    // habitacionesId,
+  } = reserva;
 
   const numHabitaciones = habitaciones.map((habitacion) => habitacion.numero);
-  console.log(numHabitaciones);
+  /*const idHabitaciones = habitaciones.idHabitaciones.map(
+    (habitacion) => habitacion.idHabitaciones
+  );*/
+  // console.log(numHabitaciones);
 
-  // return;
+  //return;
 
   const datos = new FormData();
 
   datos.append("habitaciones", numHabitaciones);
   datos.append("fechaEntrada", fechaEntrada);
   datos.append("fechaSalida", fechaSalida);
-  // datos.append("usuarioId", id);
+  //datos.append("usuarioId", id);
+  //datos.append("habitacionesId", habitacionesId);
 
   //console.log([...datos]);
 
@@ -400,7 +412,7 @@ async function reservarHabitacion() {
 
     const resultado = await respuesta.json();
 
-    console.log(resultado.resultado);
+    //console.log(resultado.resultado);
 
     if (resultado.resultado) {
       Swal.fire({
@@ -422,5 +434,5 @@ async function reservarHabitacion() {
     });
   }
 
-  // console.log([...datos]);
+  console.log([...datos]);
 }

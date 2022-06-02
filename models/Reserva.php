@@ -12,7 +12,7 @@ class Reserva extends ActiveRecord
     public $numhabitacion;
     public $fechaEntrada;
     public $fechaSalida;
-    // public $usuarioId;
+    //public $usuarioId;
     // public $habitacionId;
 
     public function __construct($args = [])
@@ -21,7 +21,7 @@ class Reserva extends ActiveRecord
         $this->numhabitacion = $args['numhabitacion'] ?? '';
         $this->fechaEntrada = $args['fechaEntrada'] ?? '';
         $this->fechaSalida = $args['fechaSalida'] ?? '';
-        // $this->usuarioId = $args['usuraioId'] ?? '';
-        // $this->habitacionId = $args['habitacionId'] ?? '';
+        //  $this->usuarioId = $args['usuarioId'] ?? '';
+        //  $this->habitacionId = $args['habitacionId'] ?? '';
     }
 }

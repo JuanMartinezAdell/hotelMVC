@@ -11,6 +11,8 @@ class ReservaController
 
         //session_start();
 
+        isAuth();
+
         $router->render('reserva/index', [
             'nombre' => $_SESSION['nombre'],
             'id' => $_SESSION['id']

@@ -124,6 +124,9 @@ class ActiveRecord
         return $resultado;
     }
 
+
+    //Consultas Planas de SQL (Utilizar cuando los métodos del modelo no son suficientes)
+
     public static function join()
     {
         $query = "SELECT *
@@ -132,6 +135,13 @@ class ActiveRecord
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
+
+    public static function SQL($query)
+    {
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
 
 
     // Busca un registro por su id
@@ -170,6 +180,8 @@ class ActiveRecord
         $query .= " ) VALUES (' ";
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
+
+        //return json_encode(['query' => $query]);
 
         // Resultado de la consulta
         $resultado = self::$db->query($query);
