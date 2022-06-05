@@ -14,15 +14,28 @@
         }
 
         span,
-        .servicio {
+        .habitacion {
             font-weight: v.$regular;
             color: v.$blanco;
         }
 
+       /* &:hover {
+            background-color: v.$azul;
+            p {
+                font-weight: v.$bold;
+                color: v.$marino;
+            }
+
+            span {
+                font-weight: v.$regular;
+                color: v.$blanco;
+            }
+        }*/
+
     }
 }
 
-.habitaciones {
+.habitacion {
     @extend .reservas;
 
     .acciones {

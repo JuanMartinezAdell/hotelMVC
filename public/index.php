@@ -3,10 +3,12 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
+use Model\Habitacion;
 use Controllers\APIController;
 use Controllers\AdminController;
 use Controllers\LoginController;
 use Controllers\ReservaController;
+use Controllers\HabitacionController;
 
 $router = new Router();
 
@@ -32,6 +34,16 @@ $router->get('/mensaje', [LoginController::class, 'mensaje']);
 // API de registro
 $router->get('/api/habitaciones', [APIController::class, 'index']);
 $router->post('/api/reservas', [APIController::class, 'guardar']);
+$router->post('/api/cancelar', [APIController::class, 'cancelar']);
+$router->post('/api/eliminar', [APIController::class, 'eliminar']);
+
+// CRUD de Habitaciones
+$router->get('/habitaciones', [HabitacionController::class, 'index']);
+$router->get('/habitaciones/crear', [HabitacionController::class, 'crear']);
+$router->post('/habitaciones/crear', [HabitacionController::class, 'crear']);
+$router->get('/habitaciones/actualizar', [HabitacionController::class, 'actualizar']);
+$router->post('/habitaciones/actualizar', [HabitacionController::class, 'actualizar']);
+$router->post('/habitaciones/eliminar', [HabitacionController::class, 'eliminar']);
 
 //AREA PRIVADA
 $router->get('/reserva', [ReservaController::class, 'index']);

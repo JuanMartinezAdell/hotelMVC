@@ -9,24 +9,37 @@ include_once __DIR__ . '/../templates/barra.php';
     <form class="formulario">
         <div class="campo">
             <label for="fechaEntrada">Fecha Entrada</label>
-            <input type="date" id="fechaEntrada" name="fechaEntrada" />
+            <input type="date" id="fechaEntrada" name="fechaEntrada" value="<?php echo $fechaEntrada; ?>" />
         </div>
-        <div class="campo">
-            <label for="fechaSalida">Fecha Entrada</label>
-            <input type="date" id="fechaSalida" name="fechaSalida" />
-        </div>
+        <!-- <div class="campo">
+            <label for="fechaSalida">Fecha Salida</label>
+            <input type="date" id="fechaSalida" name="fechaSalida" value="<?php echo $fechaSalida;  ?>" />
+        </div>-->
     </form>
 </div>
+
+<?php
+if (count($reservas) === 0) {
+    echo "<h2>No hay reservas en esta fecha</h2>";
+}
+?>
+
+
 
 <div id="reservas-admin">
     <ul class="reservas">
         <?php
         $numReserva = 0;
-        foreach ($reservas as $reserva) {
+        $totalAlta = 0;
+        $totalBaja = 0;
+        foreach ($reservas as $key => $reserva) {
+
+            // debuguear($key);
         ?>
             <li>
                 <h3>Reserva de habitación</h3>
-                <p>Numero: <span><?php echo $reserva->numero; ?></span></p>
+                <p>ID: <span><?php echo $reserva->id; ?></span></p>
+                <p>Numero habitación: <span><?php echo $reserva->numero; ?></span></p>
                 <p>Tipo: <span><?php echo $reserva->tipo; ?></span></p>
                 <p>Precio tarifa alta: <span><?php echo $reserva->precioTAlta; ?></span></p>
                 <p>Precio tarifa baja: <span><?php echo $reserva->precioTBaja; ?></span></p>
@@ -38,7 +51,33 @@ include_once __DIR__ . '/../templates/barra.php';
                 <p>Dni: <span><?php echo $reserva->dni; ?></span></p>
                 <p>Dirección: <span><?php echo $reserva->direccion; ?></span></p>
                 <p>Telefono: <span><?php echo $reserva->telefono; ?></span></p>
+
+                <?php
+                $totalAlta += $reserva->precioTAlta;
+                $totalBaja += $reserva->precioTBaja;
+                ?>
+
+                <p class="total">Total a pagar temporada alta: <span><?php echo $totalAlta; ?>€</span></p>
+                <p class="total">Total a pagar temporada baja: <span><?php echo $totalBaja; ?>€</span></p>
+                <!-- <form action="/api/cancelar" method="POST">
+                    <input type="hidden" name="id" value='<?php echo $reserva->id; ?>'>
+                    <input type="submit" class="boton-cancelar" value="Cancelar">
+                </form> -->
             </li>
-        <?php } ?>
+        <?php
+        }
+        ?>
+
+        <form class="barra-reservas" action="/api/cancelar" method="POST">
+            <input type="hidden" name="id" value='<?php echo $reserva->id; ?>'>
+            <input type="submit" class="boton-eliminar" value="Eliminar">
+            <input type="submit" class="boton-cancelar" value="Cancelar">
+        </form>
     </ul>
 </div>
+
+<?php
+$script = "
+        <script src='build/js/buscador.js'></script>
+    ";
+?>

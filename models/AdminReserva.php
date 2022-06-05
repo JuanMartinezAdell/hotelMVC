@@ -5,8 +5,9 @@ namespace Model;
 class AdminReserva extends ActiveRecord
 {
     protected static $tabla = 'reservas';
-    protected static $columnasDB = ['numero', 'tipo', 'precioTAlta', 'precioTBaja', 'descripcion', 'fechaEntrada', 'fechaSalida', 'nombre', 'email', 'dni', 'direccion', 'telefono'];
+    protected static $columnasDB = ['id', 'numero', 'tipo', 'precioTAlta', 'precioTBaja', 'descripcion', 'fechaEntrada', 'fechaSalida', 'nombre', 'email', 'dni', 'direccion', 'telefono'];
 
+    public $id;
     public $numero;
     public $tipo;
     public $precioTAlta;
@@ -22,6 +23,7 @@ class AdminReserva extends ActiveRecord
 
     public function __construct()
     {
+        $this->id = $args['id'] ?? null;
         $this->numero = $args['numero'] ?? '';
         $this->tipo = $args['tipo'] ?? '';
         $this->precioTAlta = $args['precioTAlta'] ?? '';

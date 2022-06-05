@@ -19,9 +19,14 @@
     }
 
     .app {
-        width: 95%;
+        width: 98%;
         margin: 0 auto;
         padding: 3rem 0;
+        @include m.tablet {
+            overflow: scroll;
+            overflow-x:hidden;
+            padding: 5px;
+        }
     }
 }
 
@@ -37,5 +42,31 @@
     .boton {
         @include m.boton(v.$marino, v.$blanco);
         margin: 0;
+    }
+}
+
+.barra-habitaciones {
+    margin-bottom: v.$separacion;
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton {
+        margin: 0 0 1rem 0;
+    }
+}
+
+.barra-reservas {
+    margin-bottom: v.$separacion;
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .boton {
+        margin: 0 0 1rem 0;
     }
 }
