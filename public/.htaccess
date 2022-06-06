@@ -1,0 +1,4 @@
+Opciones -Vistas múltiples
+Motor de reescritura encendido
+RewriteCond  %{REQUEST_FILENAME}  !-f
+Regla de reescritura  ^  index.php  [QSA,L]

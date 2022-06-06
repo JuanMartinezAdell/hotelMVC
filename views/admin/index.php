@@ -59,20 +59,15 @@ if (count($reservas) === 0) {
 
                 <p class="total">Total a pagar temporada alta: <span><?php echo $totalAlta; ?>€</span></p>
                 <p class="total">Total a pagar temporada baja: <span><?php echo $totalBaja; ?>€</span></p>
-                <!-- <form action="/api/cancelar" method="POST">
+                <form action="/api/eliminar" method="POST">
                     <input type="hidden" name="id" value='<?php echo $reserva->id; ?>'>
-                    <input type="submit" class="boton-cancelar" value="Cancelar">
-                </form> -->
+                    <input type="submit" class="boton-eliminar" value="Eliminar">
+                </form>
             </li>
         <?php
         }
         ?>
 
-        <form class="barra-reservas" action="/api/cancelar" method="POST">
-            <input type="hidden" name="id" value='<?php echo $reserva->id; ?>'>
-            <input type="submit" class="boton-eliminar" value="Eliminar">
-            <input type="submit" class="boton-cancelar" value="Cancelar">
-        </form>
     </ul>
 </div>
 

@@ -12,7 +12,7 @@ class Reserva extends ActiveRecord
     public $numhabitacion;
     public $fechaEntrada;
     public $fechaSalida;
-    //public $usuarioId;
+    // public $usuarioId;
     // public $habitacionId;
 
     public function __construct($args = [])

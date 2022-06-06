@@ -37,17 +37,4 @@ class APIController
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
-
-    public static function cancelar()
-    {
-        //Leo el id de la reserva y actulizao el estado de la reserva
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = $_POST['id'];
-            $reserva = Reserva::find($id);
-            //debuguear($reserva);
-            $reserva->actualizar();
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-        }
-    }
 }

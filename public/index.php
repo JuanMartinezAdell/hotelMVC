@@ -40,7 +40,7 @@ $router->post('/api/eliminar', [APIController::class, 'eliminar']);
 // CRUD de Habitaciones
 $router->get('/habitaciones', [HabitacionController::class, 'index']);
 $router->get('/habitaciones/crear', [HabitacionController::class, 'crear']);
-$router->post('/habitaciones/crear', [HabitacionController::class, 'crear']);
+$router->post('habitaciones/crear', [HabitacionController::class, 'crear']);
 $router->get('/habitaciones/actualizar', [HabitacionController::class, 'actualizar']);
 $router->post('/habitaciones/actualizar', [HabitacionController::class, 'actualizar']);
 $router->post('/habitaciones/eliminar', [HabitacionController::class, 'eliminar']);
