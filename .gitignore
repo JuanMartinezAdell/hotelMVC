@@ -1,0 +1,7 @@
+src/
+vendor/
+node_modeules/
+gulfile.js
+package.json
+package-lock.josn
+.env
